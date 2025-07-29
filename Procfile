@@ -1,1 +1,1 @@
-web: gunicorn jewellery_site.wsgi
+web: gunicorn Kenzhe_Gold_Project.wsgi
