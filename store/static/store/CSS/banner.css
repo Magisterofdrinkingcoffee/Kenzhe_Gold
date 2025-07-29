@@ -1,0 +1,66 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 20px;
+}
+
+.hero-section {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.hero-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.hero-image img {
+    max-width: 500px;
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.hero-text {
+    max-width: 600px;
+    text-align: center;
+}
+
+.hero-title {
+    font-family: 'Cinzel', serif;
+    font-size: 48px;
+    letter-spacing: 2px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    color: #000;
+}
+
+.hero-description {
+    font-size: 16px;
+    text-transform: uppercase;
+    line-height: 1.8;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.btn-shop {
+    display: inline-block;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 14px 28px;
+    border: 2px solid #d4af37;
+    color: #000;
+    background-color: transparent;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+
+.btn-shop:hover {
+    background-color: #d4af37;
+    color: #fff;
+}

@@ -1,0 +1,18 @@
+{% extends 'store/base.html' %}
+{% block content %}
+<div style="max-width: 600px; margin: auto; padding: 20px;">
+    <img src="{{ product.image.url }}" alt="{{ product.name }}" style="width: 100%; object-fit: cover; border-radius: 8px;">
+    <h2>{{ product.name }}</h2>
+    <p><strong>Бренд:</strong> {{ product.brand.name }}</p>
+    <p><strong>Тип:</strong> {{ product.type.name }}</p>
+    <p><strong>Вес:</strong> {{ product.weight_in_grams }} г</p>
+    <p><strong>Цена:</strong> {{ product.calculated_price }} ₸</p>
+    <p><strong>Описание:</strong> {{ product.description }}</p>
+    <form method="post" action="{% url 'add_to_cart' product.pk %}">
+        {% csrf_token %}
+        <button type="submit">Добавить в корзину</button>
+    </form>
+    <br>
+    <a href="{% url 'products_list' %}" style="color: #d4af37;">← Назад к каталогу</a>
+</div>
+{% endblock %}

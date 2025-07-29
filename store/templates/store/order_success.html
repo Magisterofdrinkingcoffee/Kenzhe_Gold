@@ -1,0 +1,21 @@
+{% extends 'store/base.html' %}
+{% load static %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'store/css/order_success.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="flex flex-col items-center justify-center min-h-[60vh] text-center px-4 py-12 bg-white">
+    <div class="mb-6">
+        <h2 class="text-3xl font-bold tracking-wide uppercase text-black mb-4">🎉 Спасибо за заказ!</h2>
+        <p class="text-base text-gray-600">Мы свяжемся с вами в ближайшее время для подтверждения заказа.</p>
+    </div>
+
+    <a href="{% url 'products_list' %}" 
+       class="inline-block mt-6 px-6 py-3 rounded-2xl shadow-md transition duration-300 hover:scale-105 
+              text-white font-semibold uppercase tracking-wider"
+       style="background-color: #CFAF70;">
+        Вернуться к покупкам
+    </a>
+</div>
+{% endblock %}

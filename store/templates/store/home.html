@@ -1,0 +1,85 @@
+{% extends 'store/base.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'store/CSS/home.css' %}">
+{% endblock %}
+
+{% block content %}
+<!-- HERO SECTION -->
+<div class="hero-container fade-in">
+  <div class="hero-image">
+    <img src="{% static 'store/images/banner.png' %}" alt="Hero">
+  </div>
+  <div class="hero-text">
+    <h1>KENZHE.GOLD</h1>
+    <p>
+      Откройте для себя элегантность казахского наследия, слитую с современной роскошью.<br>
+      В <strong>Kenzhe.GOLD</strong>, каждое украшение рассказывает историю — созданное с точностью, разработанное со смыслом.
+      Наши коллекции олицетворяют <span style="color:#d4af37; font-weight:600;">силу, изящество</span> и вечную изысканность.
+    </p>
+    <a href="{% url 'products_list' %}" class="shop-button">Перейти к покупкам</a>
+  </div>
+</div>
+
+<!-- СЕКЦИИ УСЛУГ -->
+<section class="section section-dark fade-in">
+  <div class="block-row">
+    <img src="{% static 'store/images/gift.png' %}" alt="Gift Wrapping">
+    <div class="block-text">
+      <h3>Подарочная упаковка</h3>
+      <p>Каждый заказ упакован так, чтобы произвести впечатление с первого взгляда.</p>
+      <a href="#" class="btn-gold">Подробнее</a>
+    </div>
+  </div>
+</section>
+
+<section class="section section-light fade-in">
+  <div class="block-row flex-row-reverse">
+    <img src="{% static 'store/images/ship.png' %}" alt="Shipping">
+    <div class="block-text">
+      <h3>Доставка и возврат</h3>
+      <p>Быстрая доставка и лёгкий возврат. Безопасно, удобно, без стресса — как и должно быть в премиум-сервисе.</p>
+      <a href="#" class="btn-gold">Узнать</a>
+    </div>
+  </div>
+</section>
+
+<section class="section section-dark fade-in">
+  <div class="block-row">
+    <img src="{% static 'store/images/coll.png' %}" alt="International Collection">
+    <div class="block-text">
+      <h3>Мировые коллекции</h3>
+      <p>Наши изделия созданы мастерами из Италии, Турции, России и Казахстана. Каждое украшение — отражение традиций и вкуса той страны, где оно было создано.</p>
+      <a href="#" class="btn-gold">Смотреть</a>
+    </div>
+  </div>
+</section>
+
+<section class="section section-light fade-in">
+  <div class="block-row flex-row-reverse">
+    <img src="{% static 'store/images/consult.png' %}" alt="Consulting">
+    <div class="block-text">
+      <h3>Личная поддержка</h3>
+      <p>Мы заботимся о клиентах: помогаем примерить украшения, подобрать образ, застегнуть браслет или серёжку. Услуга начинается с внимания к человеку.</p>
+      <a href="#" class="btn-gold">Консультация</a>
+    </div>
+  </div>
+</section>
+
+<!-- INSPIRATION BLOCK -->
+<section class="section section-dark fade-in">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-md-6">
+        <img src="{% static 'store/images/sample.png' %}" class="img-fluid rounded" alt="Collection">
+      </div>
+      <div class="col-md-6">
+        <h2>Вдохновлено культурой</h2>
+        <p>Коллекции Kenzhe.GOLD вдохновлены узорами, символами и традициями Великой степи. Это больше, чем украшения — это история, переданная в золоте.</p>
+        <a href="#" class="btn btn-gold">Смотреть коллекции</a>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

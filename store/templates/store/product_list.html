@@ -1,0 +1,35 @@
+{% extends 'store/base.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'store/css/catalog.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="catalog-title">
+  <h2>Все украшения KENZHE.GOLD</h2>
+</div>
+
+<div class="catalog-grid">
+  {% for product in products %}
+  <div class="catalog-card">
+    <div class="catalog-img-wrapper">
+      <img src="{{ product.image.url }}" alt="{{ product.name }}">
+      <div class="hover-overlay">
+        <div class="hover-content">
+          <h3>{{ product.name }}</h3>
+          <p>{{ product.brand.name }} • {{ product.type.name }}</p>
+          <p>{{ product.calculated_price }} ₸</p>
+          <form method="post" action="{% url 'add_to_cart' product.pk %}">
+            {% csrf_token %}
+            <button type="submit" class="hover-btn">Добавить в корзину</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% empty %}
+  <p class="empty-message">Нет товаров для отображения.</p>
+  {% endfor %}
+</div>
+{% endblock %}

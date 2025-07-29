@@ -1,0 +1,37 @@
+{% extends "store/base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'store/css/login.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="login-container">
+  <h2 class="login-title">Вход в аккаунт</h2>
+
+  <form method="post" class="login-form">
+    {% csrf_token %}
+    {% for field in form %}
+    <div class="form-group">
+      <label for="{{ field.id_for_label }}">
+        {% if field.name == "username" %}Имя пользователя{% endif %}
+        {% if field.name == "password" %}Пароль{% endif %}
+      </label>
+      {{ field }}
+      {% if field.errors %}
+      <div class="error">{{ field.errors|striptags }}</div>
+      {% endif %}
+    </div>
+    {% endfor %}
+
+    <div class="form-submit">
+      <button type="submit" class="btn-submit">Войти</button>
+    </div>
+  </form>
+
+  <p class="register-link">
+    Нет аккаунта?
+    <a href="{% url 'register' %}">Зарегистрироваться</a>
+  </p>
+</div>
+{% endblock %}

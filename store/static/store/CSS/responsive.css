@@ -1,0 +1,80 @@
+@media (max-width: 768px) {
+
+    /* Уменьшаем размер шрифта в шапке */
+    nav a {
+        font-size: 1.1rem;
+        padding: 0.3rem;
+    }
+
+    header {
+        padding: 1rem 0.5rem;
+        font-size: 1.4rem;
+    }
+
+    /* Карточки — адаптировать */
+    .product-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    .product-card img {
+        height: 220px;
+    }
+
+    .product-info-overlay {
+        padding: 1rem;
+    }
+
+    .product-info-overlay h3 {
+        font-size: 1rem;
+    }
+
+    .product-info-overlay p {
+        font-size: 0.85rem;
+    }
+
+    /* Баннер (hero) — стекаем в колонку */
+    .hero-section {
+        flex-direction: column;
+        border-radius: 0;
+    }
+
+    .hero-left, .hero-right {
+        max-width: 100%;
+    }
+
+    .hero-left img {
+        height: 300px;
+        object-fit: cover;
+    }
+
+    .hero-right {
+        padding: 1.5rem;
+    }
+
+    .hero-right h2 {
+        font-size: 1.6rem;
+    }
+
+    .hero-right p {
+        font-size: 1rem;
+    }
+
+    /* Чекаут форма */
+    .checkout-container {
+        padding: 1rem;
+    }
+
+    .checkout-form input,
+    .checkout-form select {
+        font-size: 0.9rem;
+    }
+
+    .btn-primary,
+    .btn-secondary,
+    .add-to-cart-btn {
+        font-size: 0.9rem;
+        padding: 0.6rem 1rem;
+    }
+}

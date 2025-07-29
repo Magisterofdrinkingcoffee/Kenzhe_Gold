@@ -1,0 +1,47 @@
+/* header.css */
+.main-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.main-nav {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 20px;
+}
+
+.main-nav a {
+    color: #000;
+    text-decoration: none;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+.main-nav a:hover {
+    color: #D4AF37;
+}
+
+.logo-container {
+    text-align: center;
+}
+
+.logo-container h1 {
+    font-family: 'Cinzel', serif;
+    font-size: 28px;
+    font-weight: 400;
+    letter-spacing: 3px;
+    margin: 0;
+}
+
+.logo-container p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin: 5px 0 0;
+}

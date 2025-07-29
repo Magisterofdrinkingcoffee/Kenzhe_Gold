@@ -1,0 +1,34 @@
+{% extends 'store/base.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'store/css/register.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="register-container">
+  <h2 class="register-title">Создание аккаунта</h2>
+
+  <form method="post" class="register-form">
+    {% csrf_token %}
+    {% for field in form %}
+      <div class="form-group">
+        <label for="{{ field.id_for_label }}">
+          {% if field.name == "username" %}Имя пользователя{% endif %}
+          {% if field.name == "email" %}Электронная почта{% endif %}
+          {% if field.name == "password1" %}Пароль{% endif %}
+          {% if field.name == "password2" %}Подтверждение пароля{% endif %}
+        </label>
+        {{ field }}
+        {% if field.errors %}
+          <div class="error">{{ field.errors|striptags }}</div>
+        {% endif %}
+      </div>
+    {% endfor %}
+
+    <div class="form-submit">
+      <button type="submit" class="btn-submit">Зарегистрироваться</button>
+    </div>
+  </form>
+</div>
+{% endblock %}
