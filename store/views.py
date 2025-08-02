@@ -9,6 +9,11 @@ from django.conf import settings
 from django.http import HttpResponse
 from datetime import date
 
+from django.core.management import call_command
+call_command("makemigrations")
+call_command("migrate")
+
+
 def home(request):
     return render(request , 'store/home.html')
 
