@@ -39,7 +39,7 @@ ROOT_URLCONF = 'jewellery_site.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates'],  # при необходимости
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -47,10 +47,12 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'store.context_processors.types_processor',  # ← добавь это
             ],
         },
     },
 ]
+
 
 WSGI_APPLICATION = 'jewellery_site.wsgi.application'
 
