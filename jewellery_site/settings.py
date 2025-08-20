@@ -99,29 +99,31 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 # --- Медиа / Cloudflare R2 ---
-
 if DEBUG:
-
     MEDIA_URL = "/media/"
     MEDIA_ROOT = BASE_DIR / "media"
     DEFAULT_FILE_STORAGE = "django.core.files.storage.FileSystemStorage"
-else:
 
+else:
     DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
 
     AWS_ACCESS_KEY_ID = os.getenv("AWS_ACCESS_KEY_ID")
     AWS_SECRET_ACCESS_KEY = os.getenv("AWS_SECRET_ACCESS_KEY")
     AWS_STORAGE_BUCKET_NAME = os.getenv("AWS_STORAGE_BUCKET_NAME", "kenzhe")
 
- 
+    # API endpoint для загрузки файлов
     AWS_S3_ENDPOINT_URL = os.getenv(
         "AWS_S3_ENDPOINT_URL",
         "https://11ccf928f566d1b6abe12267378b1e62.r2.cloudflarestorage.com"
     )
 
-  
-    MEDIA_URL = f"{AWS_S3_ENDPOINT_URL}/{AWS_STORAGE_BUCKET_NAME}/"
+    # Публичный endpoint для доступа из браузера
+    AWS_S3_CUSTOM_DOMAIN = os.getenv(
+        "AWS_S3_CUSTOM_DOMAIN",
+        "pub-689a826d5a434a9ebe33b1cbb1976871.r2.dev"
+    )
 
+    MEDIA_URL = f"https://{AWS_S3_CUSTOM_DOMAIN}/"
 
 # --- Логирование ---
 LOGGING = {
