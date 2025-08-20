@@ -99,28 +99,29 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 # --- Медиа / Cloudflare R2 ---
+
 if DEBUG:
-    # Локальная разработка → сохраняем в media/
+
     MEDIA_URL = "/media/"
     MEDIA_ROOT = BASE_DIR / "media"
     DEFAULT_FILE_STORAGE = "django.core.files.storage.FileSystemStorage"
 else:
-    # Продакшн (Render) → сохраняем в Cloudflare R2
+
     DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
 
     AWS_ACCESS_KEY_ID = os.getenv("AWS_ACCESS_KEY_ID")
     AWS_SECRET_ACCESS_KEY = os.getenv("AWS_SECRET_ACCESS_KEY")
-    AWS_STORAGE_BUCKET_NAME = os.getenv("AWS_STORAGE_BUCKET_NAME", "my-bucket")
+    AWS_STORAGE_BUCKET_NAME = os.getenv("AWS_STORAGE_BUCKET_NAME", "kenzhe")
+
+ 
     AWS_S3_ENDPOINT_URL = os.getenv(
         "AWS_S3_ENDPOINT_URL",
-        "https://11ccf928f566d1b6abe12267378b1e62.eu.r2.cloudflarestorage.com"
+        "https://11ccf928f566d1b6abe12267378b1e62.r2.cloudflarestorage.com"
     )
 
-    AWS_S3_CUSTOM_DOMAIN = f"{AWS_STORAGE_BUCKET_NAME}.r2.dev"
-    MEDIA_URL = f"https://{AWS_S3_CUSTOM_DOMAIN}/"
+  
+    MEDIA_URL = f"{AWS_S3_ENDPOINT_URL}/{AWS_STORAGE_BUCKET_NAME}/"
 
-# --- Настройки по умолчанию ---
-DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # --- Логирование ---
 LOGGING = {
