@@ -8,7 +8,7 @@ import requests
 from django.conf import settings
 from django.http import HttpResponse
 from datetime import date
-
+from django.http import HttpResponse
 from django.core.management import call_command
 call_command("makemigrations")
 call_command("migrate")
@@ -25,8 +25,6 @@ def product_detail(request , pk):
     product = get_object_or_404(Product, pk=pk)
     return render(request, 'store/product_detail.html', {'product': product})
 
-
-from django.http import HttpResponse
 
 def add_to_cart(request, pk):
     cart = request.session.get('cart', {})
@@ -145,9 +143,6 @@ def checkout(request):
         'total_price': total_price
     })
 
-
-
-
 def order_success(request):
     return render(request, 'store/order_success.html')
 
@@ -181,8 +176,8 @@ def products_by_type(request, type_id):
     })
     
 def send_whatsapp_message(request, name, phone, items, total_price, payment):
-    instance_id = "instance134900"
-    token = "m6m0kei37adlmemb"
+    instance_id = "instance125773"
+    token = "iikr53bc9sfebgdq"
     to = "+77017707593"
 
     for item in items:
