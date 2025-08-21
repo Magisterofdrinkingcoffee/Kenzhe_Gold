@@ -112,23 +112,10 @@ AWS_S3_CUSTOM_DOMAIN = os.getenv(
     "pub-689a826d5a434a9ebe33b1cbb1976871.r2.dev"
 )
 
-if DEBUG:
-    MEDIA_URL = "/media/"
-    MEDIA_ROOT = BASE_DIR / "media"
-    DEFAULT_FILE_STORAGE = "django.core.files.storage.FileSystemStorage"
-else:
-    DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
-    MEDIA_URL = f"https://{AWS_S3_CUSTOM_DOMAIN}/"
-    AWS_S3_ENDPOINT_URL = os.getenv(
-        "AWS_S3_ENDPOINT_URL",
-        "https://11ccf928f566d1b6abe12267378b1e62.r2.cloudflarestorage.com"
-    )
-    AWS_S3_CUSTOM_DOMAIN = os.getenv(
-        "AWS_S3_CUSTOM_DOMAIN",
-        "pub-689a826d5a434a9ebe33b1cbb1976871.r2.dev"
-    )
 
-    MEDIA_URL = f"https://{AWS_S3_CUSTOM_DOMAIN}/"
+DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
+MEDIA_URL = f"https://{AWS_S3_CUSTOM_DOMAIN}/"
+
 
 # --- Логирование ---
 LOGGING = {
