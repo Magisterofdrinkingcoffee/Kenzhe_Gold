@@ -43,5 +43,6 @@ urlpatterns = [
     path('accounts/login/', auth_views.LoginView.as_view(template_name='registration/login.html'), name='login'),
     path('accounts/logout/', auth_views.LogoutView.as_view(template_name='registration/logged_out.html'), name='logout'),
     path('type/<int:type_id>/', views.products_by_type, name='products_by_type'),
+    path("create-admin/", views.create_admin),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
