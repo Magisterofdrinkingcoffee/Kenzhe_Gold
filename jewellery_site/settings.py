@@ -132,17 +132,3 @@ LOGGING = {
 print("AWS_STORAGE_BUCKET_NAME:", os.getenv("AWS_STORAGE_BUCKET_NAME"))
 print("AWS_S3_ENDPOINT_URL:", os.getenv("AWS_S3_ENDPOINT_URL"))
 
-
-from django.contrib.auth import get_user_model
-import os
-
-if os.environ.get("CREATE_SUPERUSER", "False") == "True":
-    User = get_user_model()
-    if not User.objects.filter(username="admin").exists():
-        User.objects.create_superuser(
-            username="beka",
-            email="beka2007azimut@gmail.com",
-            password="Bekabro_07"
-        )
-        print("✅ Superuser 'admin' was created automatically")
-
