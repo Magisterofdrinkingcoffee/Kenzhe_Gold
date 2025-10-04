@@ -20,7 +20,7 @@ from django.urls import path
 from django.conf.urls.static import static
 from store import views
 from django.contrib.auth import views as auth_views
-from django.urls import path, include  
+from django.urls import include  
 
 
 
@@ -44,5 +44,6 @@ urlpatterns = [
     path('accounts/logout/', auth_views.LogoutView.as_view(template_name='registration/logged_out.html'), name='logout'),
     path('type/<int:type_id>/', views.products_by_type, name='products_by_type'),
     path("create-admin/", views.create_admin),
+    path("accounts/", include("allauth.urls")),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
