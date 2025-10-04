@@ -10,6 +10,8 @@ from django.http import HttpResponse
 from datetime import date
 from django.http import HttpResponse
 from django.core.management import call_command
+from django.contrib import messages
+
 call_command("makemigrations")
 call_command("migrate")
 
@@ -152,8 +154,9 @@ def register_view(request):
         form = RegisterForm(request.POST)  
         if form.is_valid():
             user = form.save()
-            login(request, user)
-            return redirect("products_list")
+            messages.info(request, "Please confirm your email before logging in.")
+            return redirect("home")
+
     else:
         form = RegisterForm()  
     return render(request, 'store/register.html', {'form': form})
